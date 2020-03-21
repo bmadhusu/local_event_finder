@@ -1,0 +1,46 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+
+<% end %>
+
+<div class="events index">
+  <h2>Events</h2>
+
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
+  <%= link_to("Add New Event", new_event_path, :class => 'action new') %>
+
+  <table class="listing" summary="Event list">
+    <tr class="header">
+      <th>#</th>
+      <th>Tweeter ID</th>
+      <th>Event</th>
+      <th>Description</th>
+      <th>Event Date</th>
+      <th>Location Address</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Congressional District</th>
+      <th>Actions</th>
+    </tr>
+    <% @events.each do |event| %>
+    <tr>
+      <td><%= event.id %></td>
+      <td><%= event.tweeter_id %></td>
+      <td><%= event.title %></td>
+      <td><%= event.description %></td>
+      <td><%= event.event_date %></td>
+      <td><%= event.location_address %></td>
+      <td><%= event.state %></td>
+      <td><%= event.zip %></td>
+      <td><%= event.congressional_district %></td>
+      <td class="actions">
+        <%= link_to("Show", event_path(event), :class => 'action show') %>
+        <%= link_to("Edit", edit_event_path(event), :class => 'action edit') %>
+        <%= link_to("Delete", delete_event_path(event), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

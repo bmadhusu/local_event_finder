@@ -1,0 +1,36 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+
+<% end %>
+
+<div class="tweeters index">
+  <h2>Tweeters</h2>
+
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
+  <%= link_to("Add New Tweeter", new_tweeter_path, :class => 'action new') %>
+
+  <table class="listing" summary="Tweeter list">
+    <tr class="header">
+      <th>Tweeter ID</th>
+      <th>Twitter Handle</th>
+      <th>Last Checked</th>
+      <th>Type of Tweeter</th>
+      <th>Actions</th>
+    </tr>
+    <% @tweeters.each do |tweeter| %>
+    <tr>
+      <td><%= tweeter.id %></td>
+      <td><%= tweeter.twitter_handle %></td>
+      <td><%= tweeter.last_checked %></td>
+      <td><%= tweeter.type_of_tweeter %></td>
+      <td class="actions">
+        <%= link_to("Show", tweeter_path(tweeter), :class => 'action show') %>
+        <%= link_to("Edit", edit_tweeter_path(tweeter), :class => 'action edit') %>
+        <%= link_to("Delete", delete_tweeter_path(tweeter), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

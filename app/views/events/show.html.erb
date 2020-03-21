@@ -1,0 +1,55 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= link_to("<< Back to List", events_path, :class => 'back-link') %>
+
+<div class="events show">
+  <h2>Show Event</h2>
+
+  <table summary="Event detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @event.title %></td>
+    </tr>
+    <tr>
+      <th>Tweeter ID</th>
+      <td><%= @event.tweeter_id %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= @event.description %></td>
+    </tr>
+    <tr>
+      <th>Event Date</th>
+      <td><%= @event.event_date %></td>
+    </tr>
+    <tr>
+      <th>Location Address</th>
+      <td><%= @event.location_address %></td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td><%= @event.state %></td>
+    </tr>
+    <tr>
+      <th>Zip</th>
+      <td><%= @event.zip %></td>
+    </tr>
+    <tr>
+      <th>Congressional District</th>
+      <td><%= @event.congressional_district %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @event.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @event.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

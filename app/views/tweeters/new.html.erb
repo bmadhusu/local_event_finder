@@ -1,0 +1,16 @@
+<%= link_to("<< Back to List", tweeters_path, :class => 'back-link') %>
+
+<div class="tweeters new">
+  <h2>Create Tweeter</h2>
+
+  <%= form_for(@tweeter) do |f| %>
+
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+
+    <div class="form-buttons">
+      <%= f.submit("Create Tweeter") %>
+    </div>
+
+  <% end %>
+</div>

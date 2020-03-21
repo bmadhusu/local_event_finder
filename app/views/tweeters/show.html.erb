@@ -1,0 +1,35 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= link_to("<< Back to List", tweeters_path, :class => 'back-link') %>
+
+<div class="tweeters show">
+  <h2>Show Tweeter</h2>
+
+  <table summary="Tweeter detail view">
+    <tr>
+      <th>Twitter Handle</th>
+      <td><%= @tweeter.twitter_handle %></td>
+    </tr>
+    <tr>
+      <th>Last Checked</th>
+      <td><%= @tweeter.last_checked %></td>
+    </tr>
+    <tr>
+      <th>Type of Tweeter</th>
+      <td><%= @tweeter.type_of_tweeter %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @tweeter.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @tweeter.updated_at %></td>
+    </tr>
+  </table>
+
+</div>
